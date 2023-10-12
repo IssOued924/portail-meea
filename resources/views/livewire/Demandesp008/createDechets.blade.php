@@ -16,7 +16,8 @@
                     {{-- <p>Veuillez remplir tous les champs avant de passer une Etape</p> --}}
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <form id="msform">
+                            <form id="msform" method="POST" action="{{ route("demandesp008-store") }}" enctype="multipart/form-data">
+                                @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="personal"><strong>Infos entreprise</strong></li>
@@ -30,45 +31,40 @@
                                         <h2 class="fs-title">Information sur l'entreprise</h2>
                                         <div class="row">
                                             <div class="col-6">
-                                                <label class="nom_societe">Dénomination de la société<span
-                                                        style="color: red">*</span></label>
-                                                <input type="text" class="border-success" name="nom_societe"
-                                                    placeholder=" "  />
-                                                    {{-- @error('nom_societe')
-                                                    <span class="invalid-feedback" role="alert">
-                                                        <strong>{{ $mesage }}</strong>
-                                                    </span>
-                                                    @enderror --}}
+                                                <label for="beneficiaire" class="nom_societe">Dénomination de la société
+                                                    <span style="color: red">*</span></label>
+                                                <input type="text" class="border-success" name="beneficiaire"
+                                                    placeholder=" " required />
                                             </div>
                                             <div class="col-6">
-                                                <label class="siege_social">Siège social<span style="color:red">
-                                                        *</span></label>
-                                                <input type="text"  class="border-success" name="siege_social" placeholder=" " />
+                                                <label for="siege_social" class="siege_social">Siège social
+                                                    <span style="color:red">*</span></label>
+                                                <input type="text"  class="border-success" name="siege_social" placeholder=" " required />
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <label class="adresse fw-bold">Adresse<span style="color: red">*</span></label>
-                                                <input type="text" class="border-success" name="adresse"
-                                                    placeholder=" " />
+                                                <label for="adresse_beneficiaire" class="adresse fw-bold">Adresse
+                                                    <span style="color: red">*</span></label>
+                                                <input type="text" class="border-success" name="adresse_beneficiaire"
+                                                    placeholder=" " required />
                                             </div>
                                             <div class="col-6">
-                                                <label class="boite_postale fw-bold">Boite postale<span style="color:red">
+                                                <label for="boite_postale" class="boite_postale fw-bold">Boite postale<span style="color:red">
                                                         *</span></label>
-                                                <input type="text" name="boite_postale" class="border-success" placeholder=" " />
+                                                <input type="text" name="boite_postale" class="border-success" placeholder=" " required />
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-6">
-                                                <label class="activite fw-bold">Activités ménées<span
-                                                        style="color: red">*</span></label>
+                                                <label class="activite fw-bold">Activités ménées
+                                                    <!--span style="color: red">*</span--></label>
                                                 <input type="text" class="border-success" name="activite"
                                                     placeholder="">
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" name="next" class="next action-button btn btn-success"
-                                        value="Suivant" />
+                                    <input type="button" class="next action-button btn btn-success" value="Suivant" />
                                     <!-- Ajoutez ceci dans la première étape du formulaire -->
                                     <div class="error-message" style="color: red;"></div>
 
@@ -76,53 +72,44 @@
                                 <fieldset>
                                     <div class="form-card mb-3">
                                         <h2 class="fs-title">Documents à fournir</h2>
-										    <div class="row">
+
+                                            <div class="row">
                                                 <div class="col-6">
-                                                    <label class="nom_societe fw-bold">RCCM<span
-                                                            style="color: red">*</span></label>
-                                                    <input type="file" class="border-success  form-control" name="nom_societe"
-                                                        />
+                                                    <label for="doc_rccm" class="nom_societe fw-bold">RCCM
+                                                        <span style="color: red">*</span></label>
+                                                    <input type="file" class="border-success  form-control" name="doc_rccm" required/>
                                                 </div>
                                                 <div class="col-6">
-                                                    <label class="nom_societe fw-bold">Arrete de faisabilité<span
-                                                            style="color: red">*</span></label>
-                                                    <input type="file" class="border-success  form-control" name="nom_societe"
-                                                        />
+                                                    <label for="doc_arrete_faisabilite" class="nom_societe fw-bold">Arrete de faisabilité
+                                                        <span style="color: red">*</span></label>
+                                                    <input type="file" class="border-success  form-control" name="doc_arrete_faisabilite" required/>
                                                 </div>
                                             </div><br>
 
-
-										   <div class="row">
+                                           <div class="row">
                                                 <div class="col-6">
-                                                    <label class="nom_societe fw-bold">Avis favorable de mairie<span
-                                                            style="color: red">*</span></label>
-                                                    <input type="file" class="border-success  form-control" name="nom_societe"
-                                                         />
+                                                    <label for="doc_avis_mairie" class="nom_societe fw-bold">Avis favorable de mairie
+                                                        <span style="color: red">*</span></label>
+                                                    <input type="file" class="border-success  form-control" name="doc_avis_mairie" required/>
                                                 </div>
                                                 <div class="col-6">
-                                                    <label class="nom_societe fw-bold">Document technique descriptif<span
-                                                            style="color: red">*</span></label>
-                                                    <input type="file" class="border-success  form-control" name="nom_societe"
-                                                        />
+                                                    <label for="doc_desc_technique" class="nom_societe fw-bold">Document technique descriptif
+                                                        <span style="color: red">*</span></label>
+                                                    <input type="file" class="border-success  form-control" name="doc_desc_technique" required/>
                                                 </div>
                                             </div><br>
 
-										<div class="row">
+                                        <div class="row">
                                             <div class="col-6">
-                                                <label class="activite fw-bold">Registre de traçabilité </label>
-                                                <input type="file" class="border-success  form-control" name="nom_societe"
-                                                    />
+                                                <label for="doc_registre_tracabilite" class="activite fw-bold">Registre de traçabilité </label>
+                                                <input type="file" class="border-success  form-control" name="doc_registre_tracabilite"/>
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous"
-                                        value="Retour" />
-                                    <input type="button" name="make_payment" class="next action-button"
-                                        value="Suivant" />
+                                    <input type="button" class="previous action-button-previous" value="Retour" />
+                                    <input type="button" class="next action-button" value="Suivant" />
                                 </fieldset>
                                 <fieldset>
-
-
                                     <div class="form-card">
                                         <h2 class="fs-title"> </h2>
 
@@ -137,12 +124,10 @@
 
                                     </div>
 
-                                    <input type="button" name="previous" class="previous action-button-previous"
-                                        value="Retour" />
-                                    <input type="button" name="make_payment" class="next action-button"
-                                        value="Valider" />
+                                    <input type="button" class="previous action-button-previous" value="Retour" />
+                                    <input type="submit" class="next action-button" value="Valider" />
                                 </fieldset>
-                                <fieldset>
+                                <!--fieldset>
                                     <div class="form-card">
                                         <h2 class="fs-title text-center">Validation !</h2>
                                         <br><br>
@@ -160,7 +145,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </fieldset>
+                                </fieldset-->
                             </form>
                         </div>
                     </div>

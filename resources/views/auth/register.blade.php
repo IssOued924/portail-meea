@@ -28,6 +28,7 @@
 
     <!-- Template Main CSS File -->
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/pool-mtdpce.css" rel="stylesheet">
 
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:400,300'>
     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>
@@ -182,7 +183,7 @@
                 <a href="#" onclick="hidden_login_and_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
                 <h5>Personne morale</h5>
                 <x-guest-layout>
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register-personne-morale') }}">
                         @csrf
 
                         <!-- Name -->
@@ -193,12 +194,20 @@
                             <x-input-error :messages="$errors->get('name')" class="mt-2" />
                         </div>
 
-                        <!-- Name -->
+                        <!-- IFU -->
                         <div>
-                            <x-input-label for="lastname" :value="__('Numéro IFU')" />
-                            <x-text-input id="lastname" class="block mt-1 w-full" type="text" name="lastname"
-                                :value="old('lastname')" required autofocus autocomplete="lastname" />
-                            <x-input-error :messages="$errors->get('lastname')" class="mt-2" />
+                            <x-input-label for="ifu" :value="__('Numéro IFU')" />
+                            <x-text-input id="ifu" class="block mt-1 w-full" type="text" name="ifu"
+                                :value="old('ifu')" required autofocus autocomplete="ifu" />
+                            <x-input-error :messages="$errors->get('ifu')" class="mt-2" />
+                        </div>
+
+                        <!-- RCCM -->
+                        <div>
+                            <x-input-label for="rccm" :value="__('Numéro RCCM')" />
+                            <x-text-input id="rccm" class="block mt-1 w-full" type="text" name="rccm"
+                                :value="old('rccm')" required autofocus autocomplete="rccm" />
+                            <x-input-error :messages="$errors->get('rccm')" class="mt-2" />
                         </div>
 
                         <!-- Email Address -->
@@ -215,6 +224,22 @@
                             <x-text-input id="telephone" class="block mt-1 w-full" type="number"
                                 name="telephone" :value="old('telephone')" required autocomplete="telephone" />
                             <x-input-error :messages="$errors->get('telephone')" class="mt-2" />
+                        </div>
+
+                        <!-- Siège social -->
+                        <div>
+                            <x-input-label for="siege_social" :value="__('Siège social')" />
+                            <x-text-input id="siege_social" class="block mt-1 w-full" type="text" name="siege_social"
+                                :value="old('siege_social')" required autofocus autocomplete="siege_social" />
+                            <x-input-error :messages="$errors->get('siege_social')" class="mt-2" />
+                        </div>
+
+                        <!-- Boite postal -->
+                        <div>
+                            <x-input-label for="boite_postale" :value="__('Boîte postale')" />
+                            <x-text-input id="boite_postale" class="block mt-1 w-full" type="text" name="boite_postale"
+                                :value="old('boite_postale')" required autofocus autocomplete="boite_postale" />
+                            <x-input-error :messages="$errors->get('boite_postale')" class="mt-2" />
                         </div>
 
                         <!-- Password -->

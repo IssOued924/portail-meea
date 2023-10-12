@@ -18,8 +18,8 @@
                         {{ session('success') }}
                     </div>
                 @endif</p>
-                    <p class="alert alert-danger">Les champs suivis d'étoile rouge sont obligatoires</p>
-                    <div class="row">
+                <p> Les champs suivis d'étoile rouge sont obligatoires    </p>
+                <div class="row">
                         <div class="col-md-12 mx-0">
                                     <form id="msform" method="POST" action="{{route("demandesp001-store")}}" enctype="multipart/form-data" >
                                         @csrf

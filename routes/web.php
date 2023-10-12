@@ -16,6 +16,7 @@ use App\Http\Controllers\CommuneController;
 use App\Http\Controllers\DemandeP003Controller;
 use App\Http\Controllers\DemandeP004Controller;
 use App\Http\Controllers\DemandeP005Controller;
+use App\Http\Controllers\DemandeP008Controller;
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RegionController;
@@ -94,6 +95,7 @@ Route::middleware('auth')->group(function () {
 
     	// P008 Demande d'utorisation de gestion de dechets
 	Route::get("/demandep008", DemandeP008Comp::class)->name("demandep008");
+    Route::post("/demandesp008-store", [DemandeP008Controller::class, 'store'])->name("demandesp008-store");
 
               // Permis de coupe de bois et charbon de bois
     Route::get("/demandesp0011", DemandeCompP0011::class)->name("demandesp0011");

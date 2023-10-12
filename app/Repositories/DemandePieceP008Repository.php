@@ -18,4 +18,13 @@ class DemandePieceP008Repository extends BaseRepository
     {
         return DemandePieceP008::class;
     }
+
+    public function setChemin(string $chemin, string $demandeId) {
+        if ( isset($chemin) && is_string($chemin) && !empty($chemin) ){
+            $piece = new DemandePieceP008();
+            $piece->chemin = $chemin;
+            $piece->demande_p008_id = $demandeId;
+            $piece->save();
+        }
+    }
 }
