@@ -47,8 +47,12 @@ class DemandeCompP009 extends Component
         $data = [
             "demandes" => Demande::where("libelle_court", "like", $searchCriteria)->latest()->paginate(5),
             "telephone" => Auth::user()->telephone,
+            "name"  => Auth::user()->name.' '.Auth::user()->prenom,
             "communes" => Commune::all(),
+
         ];
+        
+
 
         return view('livewire.Demandesp009.index', $data)
             ->extends("layouts.template")

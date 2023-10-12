@@ -18,8 +18,13 @@
                         {{ session('success') }}
                     </div>
                 @endif</p>
+<<<<<<< HEAD
                 <p> Les champs suivis d'étoile rouge sont obligatoires    </p>
                 <div class="row">
+=======
+                    <p> Les champs suivis d'étoile rouge sont obligatoires    </p>
+                    <div class="row">
+>>>>>>> b1
                         <div class="col-md-12 mx-0">
                                     <form id="msform" method="POST" action="{{route("demandesp001-store")}}" enctype="multipart/form-data" >
                                         @csrf
@@ -83,7 +88,7 @@
                                             <div class="col-6">
                                                 <label class="adresse fw-bold">Adresse Postale </label>
                                                 <input type="text" class="border-success" name="adresse_postale_demandeur"
-                                                    placeholder="Adresse ou numero de telephone"/>
+                                                    placeholder="Adresse ou numero de telephone" required/>
                                             </div>
                                             <div class="col-6">
                                                 <label class="boite_postale fw-bold">Telephone<span style="color:red">
@@ -102,9 +107,9 @@
 
                                         <div class="row">
                                             <div class="col-6">
-                                                <label class="adresse fw-bold">Quantité totale à importer<span style="color: red">*</span></label>
+                                                <label class="adresse fw-bold">Quantité totale à importer en KG</label>
                                                 <input type="text" class="border-success" name="quantite"
-                                                placeholder="Adresse ou numero de telephone"  required/>
+                                                placeholder="Adresse ou numero de telephone"/>
                                             </div>
                                             {{-- <div class="col-6">
                                                 <label class="boite_postale">Telephone<span style="color:red">
@@ -322,7 +327,7 @@
                                         </div> --}}
                                         <div class="row col">
                                             <div class="col-6">
-                                                <label>Choisir le système de transport</label>
+                                                <label>Choisir le système de transport <span style="color: red">*</span></label>
                                                 <div class="row">
                                                     <div class="col-4">
                                                         <label class="nom_societe fw-bold">Régime direct</label>
@@ -337,7 +342,7 @@
 
 
                                            <div class="col-6">
-                                                <label>Choisir agrèment</label>
+                                                <label>Choisir agrèment<span style="color: red">*</span></label>
                                                 <div class="row">
                                                 <div class="col-3">
                                                     <label class="siege_social fw-bold">Agréé</label>

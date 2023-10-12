@@ -61,6 +61,6 @@ class User extends Authenticatable
 
     public function usager()
     {
-        return $this->hasOne(Usager::class);
+        return $this->hasOne(Usager::class,'uuid','usager_id');
     }
 }

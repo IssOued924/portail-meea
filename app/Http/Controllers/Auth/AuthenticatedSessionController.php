@@ -9,15 +9,20 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\Procedure;
 
 class AuthenticatedSessionController extends Controller
 {
     /**
      * Display the login view.
      */
-    public function create(): View
+    public function create($code=null): View
     {
-        return view('auth.login');
+        $procedure=Procedure::where("code", $code)->first();
+        // dd($procedure);
+        return view('auth.login', [
+            'procedure' => $procedure
+        ]);
     }
 
     /**

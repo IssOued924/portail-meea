@@ -13,10 +13,15 @@ use App\Http\Controllers\BackendController;
 use App\Http\Controllers\BaseJuridiquesController;
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CommuneController;
+use App\Http\Controllers\DemandeP0012Controller;
 use App\Http\Controllers\DemandeP003Controller;
 use App\Http\Controllers\DemandeP004Controller;
 use App\Http\Controllers\DemandeP005Controller;
 use App\Http\Controllers\DemandeP008Controller;
+<<<<<<< HEAD
+=======
+use App\Http\Controllers\DemandeP009Controller;
+>>>>>>> b1
 use App\Http\Controllers\ProcedureController;
 use App\Http\Controllers\ProvinceController;
 use App\Http\Controllers\RegionController;
@@ -32,6 +37,7 @@ use App\Livewire\DemandeP004;
 use App\Livewire\DemandeP005Comp;
 use App\Livewire\DemandeP008Comp;
 use App\Models\DemandeP005;
+use App\Models\Procedure;
 use PharIo\Manifest\Author;
 
 /*
@@ -46,9 +52,11 @@ use PharIo\Manifest\Author;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $procedure=Procedure::all();
+    return view('welcome', [
+        'procedure' => $procedure
+    ]);
 });
-
 
 // routes des tests
 Route::get('/test', [DemandeController::class, 'index']);
@@ -65,51 +73,57 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    Route::get('/demandesp001-create', [DemandeP001Controller::class, 'create'])->name('demandesp001-create');
-    Route::get("/demandes", DemandeComp::class)->name("demandes");
+    // Route::get('/P001', [DemandeP001Controller::class, 'create'])->name('demandesp001-create');
+    Route::get("/P001", DemandeComp::class)->name("demandes");
     Route::post('/demandesp001-store', [DemandeP001Controller::class, 'store'])->name('demandesp001-store');
 
     // Route des demandes d\'octroie d\'agrement technique Eau et Assainissement
-    Route::get("/demandes-p002", DemandeCompP002::class)->name("demandes-p002");
+    Route::get("/P002", DemandeCompP002::class)->name("demandes-p002");
     Route::post('/demandesp002-store', [DemandeP002Controller::class, 'store'])->name('demandesp002-store');
 
 
      // Certificat d'exemption des emballages et sachets plastiques non biodégradables
 
-   Route::get("/demandes-p003", DemandeCompP003::class)->name("demandes-p003");
+   Route::get("/P006", DemandeCompP003::class)->name("demandes-p003");
    Route::post('/demandesp003-store', [DemandeP003Controller::class, 'store'])->name('demandesp003-store');
 
 
     //   Demande poo4 certificat de detention d'un animal sauvage
-    Route::get('/demandesp004-create', DemandeP004::class)->name('demandesp004-create');
+    Route::get('/P004', DemandeP004::class)->name('demandesp004-create');
     Route::post('/demandesp004-store', [DemandeP004Controller::class, 'store'])->name('demandesp004-store');
 
 
     //   Demande poo5 permis de circulation de bois et de charbon de bois
-    Route::get('/demandesp005-create', DemandeP005Comp::class)->name('demandesp005-create');
+    Route::get('/P005', DemandeP005Comp::class)->name('demandesp005-create');
     Route::post('/demandesp005-store', [DemandeP005Controller::class, 'store'])->name('demandesp005-store');
 
-     //***************** DEMANDE P007 ********************************//
-    Route::get("/p007", DemandeP007Comp::class)->name("demandes-p007");
+     //***************** DEMANDE P007 Homologations ********************************//
+    Route::get("/P007", DemandeP007Comp::class)->name("demandes-p007");
     Route::post('/demandesp007-store', [DemandeP007Controller::class, 'store'])->name('demandesp007-store');
 
+<<<<<<< HEAD
     	// P008 Demande d'utorisation de gestion de dechets
 	Route::get("/demandep008", DemandeP008Comp::class)->name("demandep008");
     Route::post("/demandesp008-store", [DemandeP008Controller::class, 'store'])->name("demandesp008-store");
+=======
+    	// P008 Demande d'autorisation de gestion de dechets
+	Route::get("/P008", DemandeP008Comp::class)->name("demandep008");
+    Route::post("/demandep008-store", [DemandeP008Controller::class, 'store'])->name("demandep008-store");
+>>>>>>> b1
 
               // Permis de coupe de bois et charbon de bois
-    Route::get("/demandesp0011", DemandeCompP0011::class)->name("demandesp0011");
+    Route::get("/P0011", DemandeCompP0011::class)->name("demandesp0011");
               // Route::post("/demandesp0012-store", DemandeCompP0012::class)->name("demande-p0012");
 
             // eco tourisme
-    Route::get("/demandesp0012", DemandeCompP0012::class)->name("demandesp0012");
-   // Route::post("/demandesp0012-store", DemandeCompP0012::class)->name("demande-p0012");
+    Route::get("/P0012", DemandeCompP0012::class)->name("demandesp0012");
+    Route::post("/demandesp0012-store", [DemandeP0012Controller::class, 'store'])->name("demandesp0012-store");
 
 
 
     // Permis de chasse
-    Route::get("/demandesp009", DemandeCompP009::class)->name("demandesp009");
-    Route::post("/demandesp0012-store", DemandeCompP0012::class)->name("demande-p0012");
+    Route::get("/P003", DemandeCompP009::class)->name("demandesp009");
+    Route::post("/demandesp009-store", [DemandeP009Controller::class, 'store'])->name("demandesp009-store");
 
 
 

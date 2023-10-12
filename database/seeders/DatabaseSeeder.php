@@ -15,6 +15,9 @@ class DatabaseSeeder extends Seeder
         $this->call([
             LocaliteTableSeeder::class,
             StatutDemandeSeeder::class,
+            ProcedureSeeder::class,
+            PaysSeeder::class
+            StatutDemandeSeeder::class,
             TypeUsagerSeeder::class
         ]);
         // \App\Models\User::factory(10)->create();

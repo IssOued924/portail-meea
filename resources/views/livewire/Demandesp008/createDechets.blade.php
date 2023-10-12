@@ -16,7 +16,11 @@
                     {{-- <p>Veuillez remplir tous les champs avant de passer une Etape</p> --}}
                     <div class="row">
                         <div class="col-md-12 mx-0">
+<<<<<<< HEAD
                             <form id="msform" method="POST" action="{{ route("demandesp008-store") }}" enctype="multipart/form-data">
+=======
+                            <form id="msform" method="POST" action="{{ route('demandep008-store') }}" enctype="multipart/form-data">
+>>>>>>> b1
                                 @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
@@ -73,7 +77,11 @@
                                     <div class="form-card mb-3">
                                         <h2 class="fs-title">Documents à fournir</h2>
 
+<<<<<<< HEAD
                                             <div class="row">
+=======
+										    <div class="row">
+>>>>>>> b1
                                                 <div class="col-6">
                                                     <label for="doc_rccm" class="nom_societe fw-bold">RCCM
                                                         <span style="color: red">*</span></label>
@@ -86,7 +94,11 @@
                                                 </div>
                                             </div><br>
 
+<<<<<<< HEAD
                                            <div class="row">
+=======
+										   <div class="row">
+>>>>>>> b1
                                                 <div class="col-6">
                                                     <label for="doc_avis_mairie" class="nom_societe fw-bold">Avis favorable de mairie
                                                         <span style="color: red">*</span></label>

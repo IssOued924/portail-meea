@@ -3,7 +3,7 @@
 
         <div class="container  d-flex float-start logo">
 
-            <img src="img/logo_meea.jpg" width="50px" height="70px" />
+            <img src="{{ asset('img/logo_meea.jpg') }}" width="50px" height="70px" />
             <h1>
                 <a href="/">Portail des demandes des services en ligne du MEEA</a>
             </h1>
@@ -26,7 +26,7 @@
 
                 <li class="dropdown">
                     <a><span>
-                            <div>{{ Auth::user()->prenom.' '.Auth::user()->name }}</div>
+                            <div>{{ Auth::user()->usager->prenom.' '.Auth::user()->usager->nom }}</div>
                         </span> <i class="bi bi-chevron-down"></i>
                     </a>
                     <ul>

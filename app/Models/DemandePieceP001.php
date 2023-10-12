@@ -13,11 +13,11 @@ class DemandePieceP001 extends Model
 
     public function Demande(){
         return $this->belongsTo(DemandeP001::class, 'demande_p001_id', 'uuid');
-        
+
     }
 
     public function pieceJointe(){
         return $this->belongsTo(PieceJointe::class, 'piece_jointe_id', 'uuid');
     }
-    
+
 }
