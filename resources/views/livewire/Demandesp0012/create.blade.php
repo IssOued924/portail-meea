@@ -21,9 +21,8 @@
                     <p>Les champs suivis d'etoile rouge sont obligatoires</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                                    <form id="msform" method="POST" action="{{route("demandesp001-store")}}" enctype="multipart/form-data" >
-                                        @csrf
-
+                            <form id="msform"  method="POST" action="{{route('demandesp0012-store')}}" enctype="multipart/form-data">
+                                @csrf
                                 <!-- progressbar -->
                                 <ul id="progressbar">
                                     <li class="active" id="personal"><strong>Identité du demandeur</strong></li>
@@ -59,14 +58,14 @@
                                             <div class="col-6">
                                                 <label class="nom_societe fw-bold"> <strong>identité</strong> <span
                                                         style="color: red">*</span></label>
-                                                <input type="text"   name="denomination_sociale_demandeur"
+                                                <input type="text" value="{{ $name }}"
                                                     placeholder="Nom et prenom" />
                                             </div>
                                             <div class="col-6">
                                                 <label class="siege_social fw-bold">Lieu de résidence/siège<span style="color:red">
                                                         *</span></label>
 
-                                                <select name="commune_id" id="selectMultiple" class="form-select">
+                                                <select name="commune_id" id="selectMultiple" class="form-select" required>
                                                     {{-- <input type="text" placeholder="filtrer ici"> --}}
                                                     <option value="">Veuillez choisir une ville</option>
                                                     @foreach ( $communes as  $com)
@@ -81,7 +80,7 @@
                                         <div class="row">
                                             <div class="col-6">
                                                 <label class="adresse fw-bold">Adresse Postale<span style="color: red">*</span></label>
-                                                <input type="text" class="border-success" name="adresse_postale_demandeur"
+                                                <input type="text" class="border-success" name="beneficiaire"
                                                     placeholder="Adresse ou numero de telephone" />
                                             </div>
                                             <div class="col-6">
@@ -99,7 +98,7 @@
                                             </div>
                                         </div> --}}
                                     </div>
-                                    <input type="button" name="next" class="next action-button btn btn-success"
+                                    <input type="button"  class="next action-button btn btn-success"
                                         value="Suivant" />
                                     <!-- Ajoutez ceci dans la première étape du formulaire -->
                                     <div class="error-message" style="color: red;"></div>
@@ -108,32 +107,30 @@
 
                                 <fieldset>
                                     <div class="form-card">
-                                        <h2 class="fs-title">Pièce à Fournir</h2>
+                                        <h2 class="fs-title">Pièces à Fournir</h2>
                                         <div class="row">
 
                                             <div class="col-6">
                                                 <label for="demande timbre" class="fw-bold">CNIB ou Passport</label>
-                                                <input type="file" class="form-control border-success">
+                                                <input type="file" name="cnib" class="form-control border-success" required>
                                             </div>
                                             <div class="col-6">
                                                 <label for="demande timbre" class="fw-bold">Photo d'identite</label>
-                                                <input type="file" class="form-control border-success">
+                                                <input type="file" name="photo" class="form-control border-success" required>
                                             </div>
                                         </div><br>
 
                                         <div class="row">
                                             <div class="col-6">
                                                 <label for="demande timbre" class="fw-bold">Liste des personnes concernées</label>
-                                                <input type="file" class="form-control border-success">
+                                                <input type="file" name="list_personne" class="form-control border-success" required>
                                             </div>
                                         </div>
 
-
-
                                     </div>
-                                    <input type="button" name="previous" class="previous action-button-previous"
+                                    <input type="button"   class="previous action-button-previous"
                                         value="Retour" />
-                                    <input type="button" name="make_payment" class="next action-button"
+                                    <input type="button"   class="next action-button"
                                         value="Suivant" />
                                 </fieldset>
 
@@ -153,10 +150,10 @@
 
                                     </div>
 
-                                    <input type="button" name="previous" class="previous action-button-previous"
+                                    <input type="button"  class="previous action-button-previous"
                                         value="Retour" />
-                                    <input type="submit" name="make_payment" class="next action-button"
-                                        value="Confirmation" />
+                                    <input type="submit"   class="next action-button"
+                                        value="Valider" />
                                 </fieldset>
                                 <fieldset>
                                     <div class="form-card">
@@ -171,7 +168,7 @@
                                         <br><br>
                                         <div class="row justify-content-center">
                                             <div class="col-7 text-center">
-                                                <h5>Votre demnde est enregistré avec succes et en cour de traitement!
+                                                <h5>Votre demnde est enregistré avec succès et en cour de traitement!
                                                 </h5>
                                             </div>
                                         </div>

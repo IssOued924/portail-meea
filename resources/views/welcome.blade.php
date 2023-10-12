@@ -1,84 +1,5 @@
-<!DOCTYPE html>
-<html lang="fr">
-
-<head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-    <title>Portail | MEEA</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
-    <link href="img/armoirie.png" rel="icon">
-    <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
-
-    <!-- Google Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-        rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="vendor/animate.css/animate.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="css/style.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
-    <link href="css/main.css" rel="stylesheet" />
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-
-    <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-
-
-    @livewireStyles
-</head>
-
-<body class="background">
-    <!--  -->
-    <!-- ======= Top Bar ======= -->
-    <x-topbar />
-
-    <!-- ======= Header ======= -->
-    <x-header />
-    <!-- End Header -->
-
-    <div class="content">
-
-        {{-- <p>
-            @if(session('status'))
-        <div class="alert alert-success">
-            {{ session('status') }}
-        </div>
-        @endif
-    </p> --}}
-
-    <div>
-        @if ($message = Session::get('status'))
-        <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <strong>{{ $message }}</strong>
-        </div>
-        @endif
-
-    </div>
-
-        <div class="col-lg-6 offset-lg-5 animate__animated animate__fadeInUp">
-            <form class="form-inline">
-                {{-- <i id="filter" class="bi bi-search"></i> --}}
-                <input class="form-control rounded-pill  border-success" id="filter" type="search"
-                    placeholder="Recherche ..." aria-label="Search" autocomplete="off">
-
-            </form><br>
-        </div>
+@extends('layouts/layoutW')
+@section('contenuWelcome')
 
 
         <!-- ======= Hero Section ======= -->
@@ -89,39 +10,96 @@
         <!-- End Breadcrumbs -->
 
         <!-- ======= sidebar Section ======= -->
-        <x-sidebar />
+            <div class="container">
+
+                <!-- <div class="row"> -->
+
+
+                    <div class="col">
+
+                        <div class="row">
+
+                            @foreach($procedure->take(5) as $proc)
+                            <div class="col-lg col-md mb20">
+                                <div class="mb-4">
+
+                                    <div class="" style="width:14rem; border:none; text-align:left; display:inline">
+                                        <div style="">
+                                            <img src="{{asset($proc->img)}}" class="" alt="..." width="100%" height="100%" >
+                                        </div>
+
+                                        <!-- <h6 > -->
+                                            <a title="" href="/{{$proc->code}}" class="">
+                                                <div class="proc_text rounded" style="background-color: #359b27; height:100%;">
+                                                    {{ $proc->libelle_long }}
+                                                </div>
+                                            </a>
+                                            <!-- </h6> -->
+                                            {{-- <a href="" style="align-items:center;" class="btn btn-primary   btn-sm">voir plus</a> --}}
+
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+                        </div>
+                        <div class="row" id="mycard">
+                            @foreach($procedure->slice(-5) as $proc)
+                            <div class="col-lg col-md mb20">
+                                <div class="mb-4">
+
+                                    <div class="" style="width:14rem; border:none; text-align:left; display:inline">
+                                        <div style="">
+                                            <img src="{{asset($proc->img)}}" class="" alt="..." width="100%" height="100%" >
+                                        </div>
+
+                                        <a title="" href="/{{$proc->code}}" class="">
+                                            <div class="proc_text rounded" style="background-color: #359b27; height:100%;">
+                                                {{ $proc->libelle_long }}
+                                            </div>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+
+
+                            <!-- debut Modal pour afficher les details -->
+                            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-scrollable">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title fs-5" id="staticBackdropLabel">Demande d'autorisation de transport/transfert d'un animal sauvage ou de
+                                                trophées (certificat d'origine)</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Labore tempore voluptatum porro unde ex ad
+                                            numquam
+                                            quibusdam cumque ullam iusto, voluptates commodi, sequi illum reiciendis eius tempora, ipsa maxime
+                                            corporis.
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <x-secondary-button class="ml-4">
+                                                {{ __('Fermer') }}
+                                            </x-secondary-button>
+                                            <x-primary-button class="ml-4" href="/demandes" wire:navigate>
+                                                {{ __('Postuler') }}
+                                            </x-primary-button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- fin Modal pour afficher les details -->
+                        </div>
+
+                    </div>
+                <!-- </div> -->
+            </div>
+
+
         <!-- End Contact Section -->
 
-        </main><!-- End #main -->
-    </div>
-    <!-- ======= Footer ======= -->
-    <x-footer />
-    <!-- End Footer -->
-
-    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-            class="bi bi-arrow-up-short"></i></a>
-
-    <script>
-        $("#filter").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#mycard > div").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    </script>
-    <!-- Vendor JS Files -->
-    <script src="vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="vendor/php-email-form/validate.js"></script>
-
-    <!-- Template Main JS File -->
-    <script src="js/main.js"></script>
-    @livewireScripts
-
-</body>
-
-</html>
+@endsection

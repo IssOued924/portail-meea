@@ -46,10 +46,10 @@ class DemandeComp extends Component
         $searchCriteria = "%".$this->search."%";
         $data = [
             "demandes" => Demande::where("libelle_court", "like", $searchCriteria)->latest()->paginate(5),
-            "telephone" => Auth::user()->telephone,
+            "telephone" => Auth::user()->usager->telephone,
             "communes" => Commune::all(),
         ];
-
+        ;
         return view('livewire.Demandes.index', $data)
             ->extends("layouts.template")
             ->section("contenu");

@@ -49,7 +49,8 @@ class DemandeCompP0012 extends Component
         $searchCriteria = "%".$this->search."%";
         $data = [
             "demandes" => Demande::where("libelle_court", "like", $searchCriteria)->latest()->paginate(5),
-            "telephone" => Auth::user()->telephone,
+            "telephone" => Auth::user()->usager->telephone,
+            "name" => Auth::user()->usager->nom.' '.Auth::user()->usager->prenom,
             "communes" => Commune::all(),
         ];
 

@@ -70,12 +70,12 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src=" {{ asset('backend/assets/img/user.png') }} " alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">I. Ouedraogo</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
+              <h6>Issouf Ouedraogo</h6>
               <span>Web Designer</span>
             </li>
             <li>
@@ -148,57 +148,52 @@
         <ul id="demandes-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
               <a href="{{ route('demandes-list') }}">
-                <i class="bi bi-circle"></i><span>DemmandeP001</span>
+                <i class="bi bi-circle"></i><span>Procédure écotourisme<span class="badge bg-warning text-white"> 1</span> </span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP002</span>
+                <i class="bi bi-circle"></i><span>Procédure Produit Chimique </span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP003</span>
+                <i class="bi bi-circle"></i><span>Procédure Déchets </span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP004</span>
+                <i class="bi bi-circle"></i><span>Procédure Permis Chasse</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP005</span>
+                <i class="bi bi-circle"></i><span>Procédure Détention</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP006</span>
+                <i class="bi bi-circle"></i><span>Procédure Permis Coupe</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP007</span>
+                <i class="bi bi-circle"></i><span>Procédure Certificats d'exemptions</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP008</span>
+                <i class="bi bi-circle"></i><span>Procédure Homologation</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP009</span>
+                <i class="bi bi-circle"></i><span>Procedure Agrement en Eau</span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP0010</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="bi bi-circle"></i><span>DemandeP0011</span>
+                <i class="bi bi-circle"></i><span>Procedure Permis circulation</span>
               </a>
             </li>
 
