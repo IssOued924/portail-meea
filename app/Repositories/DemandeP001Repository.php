@@ -26,9 +26,6 @@ class DemandeP001Repository extends BaseRepository
 
     // Exemple d'utilisation pour générer une chaîne de 8 caractères aléatoires :
 
-
-
-
     public function uploadFile(array $data, string $name){
 
 
@@ -47,14 +44,11 @@ class DemandeP001Repository extends BaseRepository
 
        $fileName = time().$tt.'.'.$data[$name]->getClientOriginalExtension();
 
-
         // $libelle = $data['libelle_court'];
         $libelle = 'demandeP001';
         echo $libelle;
         $url = 'public/'.$libelle;
         Storage::makeDirectory($url);
-
-
 
         $path = $data[$name]->storeAs('public/'.$libelle, $fileName);
 

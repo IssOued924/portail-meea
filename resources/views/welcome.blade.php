@@ -30,7 +30,7 @@
 
                                         <!-- <h6 > -->
                                             <a title="" href="/{{$proc->code}}" class="">
-                                                <div class="proc_text rounded" style="background-color: #359b27; height:100%;">
+                                                <div class="proc_text rounded" style="background-color: {{$proc->code_color}}; height:100%;">
                                                     {{ $proc->libelle_long }}
                                                 </div>
                                             </a>
@@ -53,11 +53,11 @@
                                             <img src="{{asset($proc->img)}}" class="" alt="..." width="100%" height="100%" >
                                         </div>
 
-                                        <a title="" href="/{{$proc->code}}" class="">
-                                            <div class="proc_text rounded" style="background-color: #359b27; height:100%;">
-                                                {{ $proc->libelle_long }}
-                                            </div>
-                                        </a>
+                                       <a title="" href="/{{$proc->code}}" class="">
+                                                <div class="proc_text rounded" style="background-color: {{$proc->code_color}}; height:100%;">
+                                                    {{ $proc->libelle_long }}
+                                                </div>
+                                            </a>
 
                                     </div>
                                 </div>

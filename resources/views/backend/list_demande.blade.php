@@ -1,7 +1,7 @@
  @extends('backend.layout.base')
     @section('title')
     <div class="pagetitle">
-      <h1>Liste des Demandes du Permis d'écotourisme ou de tourisme écologique </h1>
+      <h1>Liste des Demandes d'avis Technique d'importation de produit Chimiques industriels </h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.html">Demandes</a></li>
@@ -61,7 +61,7 @@
                     @endphp
                     @foreach ($demandes as $demande)
 
-                    <tr>
+                    <tr class="table-bordered">
                         <th scope="row">{{ $i++ }}</th>
                         <td> {{ $demande->denomination_sociale_demandeur }}</td>
                         <td>{{ $demande->appelation_commercial}}</td>
@@ -85,7 +85,8 @@
                                      <div class="row">
                                         <div class="col-6">
                                             <b>Identite demandeur:</b>
-                                            <span>OUEDRAOGO ISSOUF</span>
+                                            <span>{{ }}</span>
+
                                         </div>
                                         <div class="col-6">
                                             <b>Telephone :</b>
@@ -102,19 +103,21 @@
                                             <span>76 39 65 21</span>
                                         </div>
                                      </div> <br>
-
-
                                         <h4>Liste des fichiers Soumis</h4>
-                                       
+                                        <p>Lien</p>
+                                        @foreach ( $demande->demandePiece as $chemin)
 
 
 
+                                       <a href="{{ Storage::url($chemin->chemin) }}" >{{$chemin->libelle}}</a>
+                                       <br>
+                                       @endforeach
 
 
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fermer</button>
-                                  <button type="button" class="btn btn-primary">Save changes</button>
+                                  {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
                                 </div>
                               </div>
                             </div>
