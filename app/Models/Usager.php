@@ -12,9 +12,9 @@ class Usager extends Model
     use HasFactory;
     use \App\Http\Traits\UsesUuid;
     use HasApiTokens, HasFactory, Notifiable;
-<<<<<<< HEAD
+
     protected $guarded = [];
-=======
+
     // protected $guarded = [];
 
     // protected $keyType = 'string';
@@ -47,11 +47,11 @@ class Usager extends Model
     protected $casts = [
         'password' => 'hashed',
     ];
->>>>>>> b1
+
 
     // protected $keyType = 'string';
     // public $incrementing = false;
-    protected $primaryKey = 'uuid';
+    // protected $primaryKey = 'uuid';
     // ...
 
     /**
@@ -59,25 +59,14 @@ class Usager extends Model
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'nom',
-        'prenom',
-        'telephone',
-        'nom_entreprise',
-        'ifu',
-        'rccm',
-        'boite_postale',
-        'siege_social'
-    ];
+
 
     /**
      * The attributes that should be cast.
      *
      * @var array<string, string>
      */
-    protected $casts = [
-        'password' => 'hashed',
-    ];
+    
 
     public function communeResidence(){
         return $this->belongsTo(Commune::class, 'commune_residence', 'uuid');
