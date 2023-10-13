@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
@@ -59,7 +59,7 @@
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
-            <span class="badge bg-danger badge-number" title="Nombres de Nouvelles Demandes">  3</span>
+            <span class="badge bg-danger badge-number" title="Nombres de Nouvelles Demandes"> </span>
           </a><!-- End Notification Icon -->
 
 
@@ -148,12 +148,12 @@
         <ul id="demandes-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
             <li>
               <a href="{{ route('demandes-list') }}">
-                <i class="bi bi-circle"></i><span>Procédure écotourisme<span class="badge bg-warning text-white"> 1</span> </span>
+                <i class="bi bi-circle"></i><span>Procédure Produit Chimique<span class="badge bg-warning text-white"> 1</span> </span>
               </a>
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>Procédure Produit Chimique </span>
+                <i class="bi bi-circle"></i><span>Procédure écotourisme </span>
               </a>
             </li>
             <li>
@@ -328,6 +328,24 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('backend/assets/js/main.js') }}"></script>
+
+  <script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+</script>
 
   @yield('script')
 

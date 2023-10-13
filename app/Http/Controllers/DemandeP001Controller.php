@@ -44,6 +44,7 @@ class DemandeP001Controller extends Controller
 
         unset($data['telephone']);
         $data['usager_id'] = Auth::user()->usager_id;
+        $data['etat'] = 'D'; //code de procedure demande deposee
 
         $data['procedure_id'] = Procedure::where(['code' => 'P001'])->first('uuid')->uuid;
         //$data['usager_id']= Auth::user()->uuid;
@@ -78,14 +79,14 @@ class DemandeP001Controller extends Controller
         //    dd($demande->uuid);
 
         //    $this->repository->uuid();
-        $demandePieceP001Repository->setChemin($cheminFaisabilite, $demande->uuid);
-        $demandePieceP001Repository->setChemin($cheminRccm, $demande->uuid);
-        $demandePieceP001Repository->setChemin($facture_pro_format, $demande->uuid);
-        $demandePieceP001Repository->setChemin($cheminFicheSecurite, $demande->uuid);
-        $demandePieceP001Repository->setChemin($registre_tracabilite, $demande->uuid);
-        $demandePieceP001Repository->setChemin($registre_dechet, $demande->uuid);
-        $demandePieceP001Repository->setChemin($attestation_destination_finale, $demande->uuid);
-        $demandePieceP001Repository->setChemin($list_produit, $demande->uuid);
+        $demandePieceP001Repository->setChemin($cheminFaisabilite, $demande->uuid, 'Avis Faisabilite');
+        $demandePieceP001Repository->setChemin($cheminRccm, $demande->uuid, 'Rccm');
+        $demandePieceP001Repository->setChemin($facture_pro_format, $demande->uuid, 'Facture Pro-Format');
+        $demandePieceP001Repository->setChemin($cheminFicheSecurite, $demande->uuid, 'Fiche Securite');
+        $demandePieceP001Repository->setChemin($registre_tracabilite, $demande->uuid, 'Registre de Tracabilite');
+        $demandePieceP001Repository->setChemin($registre_dechet, $demande->uuid, 'Registre Dechet' );
+        $demandePieceP001Repository->setChemin($attestation_destination_finale, $demande->uuid, 'Attestation destination Finale');
+        $demandePieceP001Repository->setChemin($list_produit, $demande->uuid, 'Liste des poduits');
 
 
 

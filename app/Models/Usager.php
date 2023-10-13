@@ -95,6 +95,11 @@ class Usager extends Model
         return $this->belongsTo(Commune::class, 'commune_origine', 'uuid');
     }
 
+    public function demande()
+    {
+        return $this->hasMany(DemandeP001::class, 'demande_p001_id');
+    }
+
     // public function user()
     // {
     //     return $this->hasOne(User::class);
