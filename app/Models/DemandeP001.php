@@ -70,9 +70,18 @@ class DemandeP001 extends Demande
 
         return $randomString;
     }
+
+    public function usager(){
+        return $this->belongsTo(Usager::class, 'usager_id', 'uuid');
+    }
     public function demandePiece()
     {
         return $this->hasMany(DemandePieceP001::class, 'demande_p001_id');
+    }
+    //   Function recuperation des status demandes
+    public function statut()
+    {
+        return $this->belongsTo(StatutDemande::class, 'etat');
     }
 
 }

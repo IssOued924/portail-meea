@@ -153,7 +153,7 @@
             </li>
             <li>
               <a href="#">
-                <i class="bi bi-circle"></i><span>Procédure Produit Chimique </span>
+                <i class="bi bi-circle"></i><span>Procédure écotourisme </span>
               </a>
             </li>
             <li>
@@ -328,6 +328,24 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('backend/assets/js/main.js') }}"></script>
+
+  <script>
+    $(function () {
+      $("#example1").DataTable({
+        "responsive": true, "lengthChange": false, "autoWidth": false,
+        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+      $('#example2').DataTable({
+        "paging": true,
+        "lengthChange": false,
+        "searching": false,
+        "ordering": true,
+        "info": true,
+        "autoWidth": false,
+        "responsive": true,
+      });
+    });
+</script>
 
   @yield('script')
 
