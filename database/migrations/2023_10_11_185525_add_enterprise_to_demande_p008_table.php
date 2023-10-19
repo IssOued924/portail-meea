@@ -13,11 +13,7 @@ return new class extends Migration
     {
         Schema::table('demande_p008_s', function (Blueprint $table) {
             $table->string('siege_social')->nullable();
-<<<<<<< HEAD
             $table->string('boite_postale')->nullable();
-=======
-            $table->string('boite_postal')->nullable();
->>>>>>> b1
         });
     }
 
@@ -28,11 +24,7 @@ return new class extends Migration
     {
         Schema::table('demande_p008_s', function (Blueprint $table) {
             $table->dropColumn('siege_social');
-<<<<<<< HEAD
             $table->dropColumn('boite_postale');
-=======
-            $table->dropColumn('boite_postal');
->>>>>>> b1
         });
     }
 };

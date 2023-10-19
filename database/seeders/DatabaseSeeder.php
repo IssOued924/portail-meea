@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
             LocaliteTableSeeder::class,
             StatutDemandeSeeder::class,
             ProcedureSeeder::class,
-            PaysSeeder::class
+            PaysSeeder::class,
             StatutDemandeSeeder::class,
             TypeUsagerSeeder::class
         ]);
