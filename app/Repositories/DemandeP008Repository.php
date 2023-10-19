@@ -2,18 +2,9 @@
 
 namespace App\Repositories;
 
-<<<<<<< HEAD
 use App\Models\DemandeP008;
 use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
 use Illuminate\Support\Facades\Storage;
-=======
-use JasonGuru\LaravelMakeRepository\Repository\BaseRepository;
-use Illuminate\Support\Facades\Storage;
-
-
-use App\Models\DemandeP008;
-
->>>>>>> b1
 //use Your Model
 
 /**
@@ -31,15 +22,9 @@ class DemandeP008Repository extends BaseRepository
     }
 
     public function uploadFile(array $data, string $name){
-<<<<<<< HEAD
         
         $this->unsetClauses();
         
-=======
-
-        $this->unsetClauses();
-
->>>>>>> b1
         if ( isset($data[$name]) ){
             $demande = new DemandeP008();
 

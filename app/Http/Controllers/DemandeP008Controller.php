@@ -50,11 +50,7 @@ class DemandeP008Controller extends Controller
         $chemin_desc_technique =  $this->repository->uploadFile($dataFiles, 'doc_desc_technique');
         $chemin_registre_tracabilite =  $this->repository->uploadFile($dataFiles, 'doc_registre_tracabilite');
         /* FIN enregistrement des pièce-jointes avec récupération de leur urls */
-<<<<<<< HEAD
     
-=======
-
->>>>>>> b1
         /* Debut détatchement des variables n'apparaissant pas directement dans la table DemandeP008 */
         unset($data['activite']);
         unset($data['siege_social']);
@@ -69,11 +65,7 @@ class DemandeP008Controller extends Controller
         $demande = $this->repository->create($data);
         $demande->usager_id = $user->usager_id;
         $demande->save();
-<<<<<<< HEAD
         
-=======
-
->>>>>>> b1
         /* DEBUT Mise-à-jour des pièce-jointes de sorte à retrouver la demande associée */
         $demandePieceP008Repository->setChemin ($chemin_rccm, $demande->uuid);
         $demandePieceP008Repository->setChemin ($chemin_faisabilite, $demande->uuid);
@@ -82,10 +74,6 @@ class DemandeP008Controller extends Controller
         $demandePieceP008Repository->setChemin ($chemin_registre_tracabilite, $demande->uuid);
         /* FIN Mise-à-jour des pièce-jointes de sorte à retrouver la demande associée */
 
-<<<<<<< HEAD
-        return redirect('/')->with('status', 'Votre Demande à bien été Soumis !!');
-=======
         return redirect('/')->with('status', 'Votre Demande à bien été Soumise !!');
->>>>>>> b1
     }
 }

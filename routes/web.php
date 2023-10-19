@@ -102,7 +102,7 @@ Route::middleware('auth')->group(function () {
 
     	// P008 Demande d'autorisation de gestion de dechets
 	Route::get("/P008", DemandeP008Comp::class)->name("demandep008");
-    Route::post("/demandep008-store", [DemandeP008Controller::class, 'store'])->name("demandep008-store");
+    Route::post("/demandesp008-store", [DemandeP008Controller::class, 'store'])->name("demandesp008-store");
 
 
               // Permis de coupe de bois et charbon de bois
